@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using QuestNotesWebRazor.Pages.Control;
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    ViewBag.LayoutBodyClass = "sidebar";
+    ViewBag.Breadcrumbs = new BreadcrumbModel(new[]
+    {
+        new Breadcrumb("ホーム", "/"),
+        new Breadcrumb("マニュアル", "/Content/Manual")
+    });
+}
+<style>
+    .nest {
+        margin-left: 20px;
+    }
+    .index {
+        width: 260px;
+        flex-shrink: 0;
+    }
+   .aside {
+        padding: 10px 20px;
+        border: 1px white solid;
+        margin: 20px;
+    }
+
+    .code {
+        background-color: #808080;
+        color: #eecbcb;
+        text-shadow: none;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+
+    .navbar-toggler-icon{
+        background-color: rgba(0, 0, 0, 0.7);
+        color: gray;
+        border: 1px solid gray;
+        border-radius: 4px;
+        padding: 4px;
+    }
+    .navbar-toggler{
+        position: fixed;
+        top: 20px;
+    }
+
+    .menuToggle{
+        display: none;
+    }
+    .showInTouch{
+        display: none;
+    }
+    .touch {
+        .showInTouch {
+            display: block;
+        }
+        .hideInTouch {
+            display: none;
+        }
+    }
+
+    @@media screen and (max-width: 480px) {
+        .menuToggle {
+            display: block;
+        }
+        .index {
+            display: none;
+        }
+        .offcanvas{
+            background: #252525;
+            width: 300px;
+        }
+        .offcanvas-header {
+            justify-content: end;
+        }
+        .btn-close{
+            color: white!important;
+        }
+    }
+</style>
+<script>
+    var isMobile = function(){
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobile = /iphone|ipod|ipad|android|mobile/.test(userAgent);
+      const isIpadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+      return isMobile || isIpadOS;
+    }
+    $(function(){
+        if(isMobile()){
+            $("#container").addClass("touch");
+        }
+    })
+</script>
+<div id="container">
+    <div class="menuToggle">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon">
+                <i class="bi bi-list"></i>
+            </span>
+        </button>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                @{
+                    await Html.RenderPartialAsync("~/Pages/Content/Manual/_Menu.cshtml");
+                }
+            </div>
+        </div>
+    </div>
+    <div style="display: flex;">
+        <div class="index">
+            @{
+                await Html.RenderPartialAsync("~/Pages/Content/Manual/_Menu.cshtml");
+            }
+        </div>
+        <div style="overflow: hidden;">
+            @RenderBody()
+        </div>
+    </div>
+
+
+</div>

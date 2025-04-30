@@ -1,0 +1,24 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.ResourceModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　素材" + TextResource.BaseTitle;
+}
+<h2 class="boarder">素材</h2>
+<p>
+    ピクチャー（画像）やサウンド（音楽）などのシナリオで使用する素材の一覧です。予め幾つか用意されているものに加えて、自由にアップロードしてファイルを追加することができます。
+</p>
+<p>
+    <img src="/image/manual/17-1.png" class="hideInTouch" />
+    <img src="/image/manual/touch/17-1.png" class="showInTouch" />
+    <br />
+    ファイルの形式は、ピクチャーは「.jpg、.png」となっています。サウンドは「.mp3、.wav、 .aac」となっています。 <br />
+    その他のファイルは拡張子は問いません。
+</p>
+
+<p>ファイルサイズは一つのファイルにつき 4MB までです。全体の容量は 40MB となっています。</p>
+<div class="tip">クエストノーツでは開発の支援をしてくれるパトロンを募集しており、開発費を援助していただけた場合には、素材容量追加の特典を用意しております。詳しくは<a href="https://www.questnotes.net/Topic/Patron/">こちら</a>を参照してください。</div>
+<p>
+    素材はユーザー単位で保存されます。 
+    <span class="hideInTouch">リソースウィンドウの左上のアイコンをクリックすると保存されている URLをクリップボードにコピーすることができます。</span>
+</p>

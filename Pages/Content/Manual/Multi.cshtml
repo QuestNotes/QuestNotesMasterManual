@@ -1,0 +1,41 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.MultiModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　全員イベント" + TextResource.BaseTitle;
+}
+<div>
+    <h2 class="boarder">全員イベント</h2>
+    <p>
+        QuestNotesは自分ひとりでイベントを実行する以外に、
+        ボードに参加している他のプレイヤーと同時に実行することができます。
+    </p>
+    <p>
+        
+        <span class="hideInTouch">
+            イベントウィンドウの右上で、イベントの実行タイプを変更できます。
+        </span>
+        <span class="showInTouch">
+            イベントパネルで、イベントの実行タイプを変更できます。
+        </span>
+        また、実行タイプはイベントの呼び出しコマンドで上書きできます。
+        <br/>
+        <ul>
+            <li>継承 - イベントの呼び出し元と同じ実行タイプになります。実行中のイベントがない場合は、個人イベントになります。</li>
+            <li>個人 - イベントを自分だけで実行します。</li>
+            <li>全員 - ボード参加者と同時に実行します。</li>
+        </ul>
+    </p>
+    <p class="hideInTouch">
+        <img src="/image/manual/9-1.png" /><br />
+        「全員」が設定されているイベントはイベント管理ウィンドウでアイコンが追加されます。
+    </p>
+    <p>
+        サーバーに通知する動作は、ボード内にランダムに決定される代表者が行います。 <br />
+        また、全員イベント実行中に他のキャラクターがログインした場合には、 イベントの実行位置を同期することができます。
+    </p>
+    <p>
+        個人イベントを実行中に、他のプレイヤーが全員イベントを起動した場合には、実行中の個人イベントは終了されます。
+    </p>
+
+</div>

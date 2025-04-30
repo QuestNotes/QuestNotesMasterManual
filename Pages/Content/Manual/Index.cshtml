@@ -1,0 +1,114 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.IndexModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　はじめに" + TextResource.BaseTitle;
+}
+<style>
+    .columnContainer{
+        display: flex;
+        padding-inline: 24px;
+        gap: 16px;
+    }
+    .column {
+        width: 200px;
+    }
+
+    .thumbnail {
+        width: 100%;
+    }
+
+    @@media screen and (max-width: 720px) {
+        .columnContainer {
+            flex-direction: column;
+        }
+        .column {
+            width: 100%;
+        }
+    }
+</style>
+<h2 class="boarder">マニュアル for Master</h2>
+<p>マニュアルはマスター向けのクエスト製作説明になります。プレイヤー向けの説明は<a href="/Content/Help">ヘルプ</a>を参照してください。</p>
+
+<div class="boarder">物語を紡ぐ楽しみ</div>
+<div>
+    QuestNotesでは、プレイヤーとして遊ぶだけでなく、<br />
+    自由に物語を作成し公開したり、他のプレイヤーといっしょに物語を作り上げることができます。<br />
+    受け手として遊ぶだけでは得られない楽しみ、をぜひ体験してみてください。<br />
+    <br />
+    <div class="boarder">シナリオ作成</div>
+    <br />
+    プログラミング不要の簡単操作でシナリオを作成することができます。<br />
+    <br />
+    <div class="columnContainer">
+        <div class="column">
+            <a href="/Content/Manual/Board">
+                <img src="/image/manual/1.png" class="hideInTouch thumbnail"/>
+                <img src="/image/manual/touch/1.png" class="showInTouch thumbnail" />
+                <br />
+                ボードエディット
+            </a><br />
+            <div class="description">
+                物語の場面であるボードには、キャラクターやチップの配置をグラフィカルに設定できます。また、背景やBGMなどには自分でアップロードした画像や音楽も使用できます。
+            </div>
+        </div>
+        <div class="column">
+            <a href="/Content/Manual/Event">
+                <img src="/image/manual/2.png" class="hideInTouch thumbnail" />
+                <img src="/image/manual/touch/2.png" class="showInTouch thumbnail" />
+                <br />
+                イベントエディット
+            </a><br />
+            <div class="description">物語を演出するイベントは、シナリオを操作する「コマンド」を組み合わせることで、柔軟に作成できます。ネットワークを利用したマルチプレイのイベントも作成可能です。</div>
+        </div>
+        <div class="column">
+            <a href="/Content/Manual/Database">
+                <img src="/image/manual/3.png" class="hideInTouch thumbnail" />
+                <img src="/image/manual/touch/3.png" class="showInTouch thumbnail" />
+                <br />
+                データベース
+            </a><br />
+            <div class="description">
+                あらかじめ用意されているモンスターやアイテム、スキル以外にも、自由な能力や効果のデータを作成し、物語に登場させることができます。
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="hideInTouch">
+        <div class="boarder">セッションサポート</div>
+        <br />
+        普段のTRPGのようにマスターとプレイヤーが集まって遊ぶ「セッション」を支援するマスタリング機能があります。<br />
+        <br />
+        <div class="columnContainer">
+            
+            <div class="column">
+                <a href="/Content/Manual/Dice">
+                    <img alt="" src="/image/manual/4.png" class="thumbnail" /><br />
+                    ダイスチャット
+                </a><br />
+                <div class="description">
+                    チャットからダイスを振ることができるので、判定などを柔軟に行うことができます。6面ダイス以外の種類のダイスも使用できます。
+                </div>
+            </div>
+            <div class="column">
+                <a href="/Content/Manual/Mastering">
+                    <img alt="" src="/image/manual/5.png" class="thumbnail" /><br />
+                    マスタリング
+                </a><br />
+                <div class="description">
+                    あらかじめイベントを作成しておかなくても、その場でコマンドやエフェクトを設定して実行することができるので、臨機応変なマスタリングが可能です。
+                </div>
+            </div>
+            <div class="column">
+                <a href="/Content/Manual/Manipulate">
+                    <img alt="" src="/image/manual/6.png" class="thumbnail" /><br />
+                    モンスターの操作
+                </a><br />
+                <div class="description">
+                    普段は自動で動くモンスターもマスターが行動を操作することで、より戦略性の高い戦闘をプレイヤーに提供することができます。
+                </div>
+            </div>
+        </div>
+
+    </div><br />
+</div>

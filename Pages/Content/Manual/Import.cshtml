@@ -1,0 +1,29 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.ImportModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　インポート/エクスポート" + TextResource.BaseTitle;
+}
+<h2 class="boarder">インポート/エクスポート</h2>
+<p>
+    クエストノーツでは、様々なデータをエクスポート（ファイルとして保存）することができます。
+    また、インポート（ファイルを読み込んでデータを利用）することができます。<br />
+    エクスポートすることで、シナリオ間でのデータの共有はもちろん、他のマスターにも共有することができます。 <br />
+    <br />
+    エクスポートできるゲームデータは以下の種類があります。 括弧内は拡張子を表します。
+</p>
+<ul>
+    <li>キャラクター (.qndc) </li>
+    <li>スキル (.qnds) </li>
+    <li>アイテム (.qndi)</li>
+    <li>アクション AI (.qna)</li>
+    <li>リアクション AI (.qnr) </li>
+    <li>コンディション (.qnc) </li>
+    <li>ボード (.qnb) </li>
+    <li>イベント (.qne) </li>
+    <li>シナリオ （.qns） </li>
+</ul>
+<p>エクスポートしたファイルは、XML という形式で保存されるので、 テキストエディタで開いて編集することもできます。 </p>
+<div class="aside">
+    システムが割り振ったIDなどを編集すると意図しない動作につながる場合があるので、直接の編集をする場合は動作の保証ができない場合があります。
+</div>

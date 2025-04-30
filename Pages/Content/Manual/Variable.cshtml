@@ -1,0 +1,114 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.VariableModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　変数" + TextResource.BaseTitle;
+}
+<style>
+    .image{
+        background-color: white;
+        width: 100%;
+        max-width: 360px;
+    }
+</style>
+<h2 class="boarder">変数</h2>
+<p>
+    ゲームの進行状態などを確認するためのデータ保管場所として変数というものがあります。<br />
+    文字や数字を代入しておくことができるので、変数を使用すれば、イベントで条件分岐などが容易になります。<br />
+    変数とは、何か情報を格納しておくための箱です。変"数"という名前ですが、<br />
+    数字以外も格納することができます。俗にゲームでいうところの「フラグ」に相当するものです。<br />
+
+</p>
+
+
+<div class="boarder">変数</div>
+<p>
+    変数は、[変数 Id]と[値]で成り立っています。<br />
+    変数の操作コマンドなどで、操作をすることができます。<br />
+    <img src="/image/manual/8-4.png" class="hideInTouch" />
+    <img src="/image/manual/touch/8-4.png" class="showInTouch" />
+    <br />
+    変数の操作は、「変数の操作」コマンドで行えます。
+    "test"という変数 ID の変数に"1"という値を代入すると、それ以降"test"の中身に"1"が保持されます。
+    代入以外にも、加算、減算など既存の変数の値を修整することもできます。<br />
+    <br />
+    <img src="/image/manual/8-1.png" class="image" />
+</p>
+
+<div class="boarder">配列変数</div>
+<p>
+    一つの ID に対して一つの値しか持てない変数の他に、<br />
+    一つの ID に対して、複数の値を持てる「配列変数」というものもあります。<br />
+    また、配列変数を使うことにより平均、最小値などを求めやすくなります。<br />
+    「インデックス」という、何番目を操作するかを指定できます。<br />
+    また、このインデックスは 0 から始まるので、先頭（一つ目）のインデックスは 0 になります。<br />
+    <img src="/image/manual/8-5.png" class="hideInTouch" />
+    <img src="/image/manual/touch/8-5.png" class="showInTouch" />
+    <br />
+    配列変数の操作は、「配列変数の操作」コマンドで行えます。<br />
+    "tests"という配列変数 ID の 3 番目（インデックスは 2）の変数に"3"を代入しています。<br />
+    <br />
+    <img src="/image/manual/8-2.png" class="image" /><br />
+
+</p>
+<br />
+<p>
+    また、配列変数の要素数は自動的に増えていきます。<br />
+    <img src="/image/manual/8-6.png" class="hideInTouch" />
+    <img src="/image/manual/touch/8-6.png" class="showInTouch" />
+    <br />
+    上の図では、"tests"という配列変数 ID に、新しい要素"QN"を追加しています。<br />
+    これによって、要素数が 3 つから、4 つに増えました。<br />
+    <br />
+    <img src="/image/manual/8-3.png" class="image" /><br />
+
+</p>
+<br />
+
+<div class="boarder">変数の種類</div>
+<p>
+    変数は、保持期間や参照できる条件からいくつかの種類があります。<br />
+
+    マスターメニューから「変数ウィンドウ」で指定の変数IDの種類を宣言しておくことができます。<br />
+    <img src="/image/manual/8-8.png" class="hideInTouch" /><br />
+    <ul>
+
+        <li>キャラクター変数 - キャラクターごとに保持する変数です。自動で保存されます。</li>
+        <li>パーティー変数 - パーティーで共有できる変数です。自動で保存され、パーティーメンバー間で同期されます。</li>
+        <li>
+            グローバル変数 -
+            シナリオが持つ変数です。シナリオに参加している全てのボードにいるキャラクターから参照可能です。グローバル変数は同期しません。<br />
+            また、グローバル変数には URL が割り振られます。 <span class="code">https://www.questnotes.net/variable/シナリオID/グローバル変数ID</span> にリクエストすることによって、値を取得することができます。
+        </li>
+        <li>特殊変数 - 新規に作製、代入することはできない読み取り専用でゲーム内の情報を取得できる変数です。特集変数で取得できる内容は<a href="https://www.questnotes.net/Reference/Setter">リファレンス</a>に一覧があります。</li>
+    </ul>
+    ここで宣言していない変数を使う場合は、ローカル変数になります。<br />
+    <ul>
+        <li>
+            ローカル変数 - 実行中のイベント内からのみ参照できます。イベント実行ごとに同じ変数 ID
+            を指定しても、それぞれが独立します。イベント終了時に消えてしまいます。(保存処理を行わないためローカル変数を利用した処理は比較的軽くなります。)
+        </li>
+    </ul>
+</p>
+<div class="boarder">変数参照</div>
+<p>
+    変数は条件分岐の使い以外にも、コマンドでの値を設定する際に、変数から代入することができる項目が多くあります。 <br />
+    （例・「特殊変数の代入」コマンドで、イベントの実行者のキャラクターID を取得して、そのキャラクターに対して「エフェ クト」コマンドでダメージを与える） <br />
+    <img src="/image/manual/8-7.png" class="hideInTouch" /><br />
+
+    特殊文字には以下のものがあります。
+    <ul>
+        <li><span class="code">%変数ID</span> - 変数の値を代入します。 </li>
+        <li>
+            <span class="code">\v[変数ID]</span>
+             - 変数の値を代入します。 文章の中の一部のみを変数参照したい場合に使用したいときはこちらを使用してください。
+        </li>
+        <li><span class="code">%配列変数ID[インデックス]</span> - 配列変数の指定インデックスの値を代入します。 </li>
+        <li>
+            <span class="code">\v[変数ID][インデックス]</span>
+             - 配列変数の指定インデックスの値を代入します。
+            文章の中の一部のみを変数参照したい場合に使用したいときはこちらを使用してください。
+        </li>
+    </ul>
+
+</p>

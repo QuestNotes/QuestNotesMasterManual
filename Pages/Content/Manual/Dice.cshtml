@@ -1,0 +1,55 @@
+﻿@page
+@model QuestNotesWebRazor.Pages.Content.Manual.DiceModel
+@{
+    Layout = "~/Pages/Content/Manual/_Layout.cshtml";
+    ViewData["Title"] = "マニュアル　ダイスチャット" + TextResource.BaseTitle;
+}
+<h2 class="boarder">ダイスチャット</h2>
+<p>
+    セッション中に各々のプレイヤーにダイスを降ってもらいたい場合には、ダイスチャットが便利です。
+</p>
+
+
+<p>
+    <img src="/image/manual/19-1.png" /><br />
+    チャットのコマンド欄に「/dice」と入力し、メッセージ欄に「数字」または「数字d数字」と入力することでダイスロールを表すチャットを送信することができます。<br />
+    &lt;Diceの個数&gt;d&lt;ダイスの面数&gt;という表記になります。（6面ダイスの場合は画像が表示されます。）<br />
+    ちなみに中央のdとは、ダイス(Dice)の頭文字を意味しています。
+
+</p>
+
+<div class="boarder">ダイス補正</div>
+<p>
+    また、「+/-数字またはステータス」を追加すると、ダイス値を修整することができます。<br />
+    参照できるステータスは以下になります。<br />
+    <img src="/image/manual/19-2.png" /><br />
+    <ul>
+        <li>str - 筋力/STR補正値</li>
+        <li>int - 知力/INT補正値</li>
+        <li>sen - 感覚/SEN補正値</li>
+        <li>dex - 器用/DEX補正値</li>
+        <li>con - 体力/CON補正値</li>
+        <li>
+            agi - 敏捷/AGI補正値<br /><br />
+        </li>
+        <li>atk - 攻撃/ATK</li>
+        <li>matk - 魔攻/MATK</li>
+        <li>hit - 命中/HIT</li>
+        <li>flee - 回避/FLEE</li>
+        <li>resi - 抵抗/RESI</li>
+        <li>def - 防御/DEF</li>
+        <li>mdef - 魔防/MDEF</li>
+    </ul>
+
+</p>
+<div class="boarder">判定</div>
+<p>
+    判定を行う場合には、末尾に「&gt;/&lt;/&lt;=/&gt;=数字」を入力すると、判定結果を表示することができます。
+    <ul>
+        <li>&gt; - より大きい</li>
+        <li>&gt;= - 以上</li>
+        <li>&lt; - より小さい</li>
+        <li>&lt;= - 以下</li>
+    </ul>
+    判定を行った場合は、クリティカルとファンブルの場合を考慮します。
+</p>
